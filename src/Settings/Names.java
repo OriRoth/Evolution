@@ -1,4 +1,4 @@
-package gui;
+package Settings;
 
 public enum Names {
   ;
