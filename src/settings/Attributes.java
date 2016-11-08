@@ -1,4 +1,4 @@
-package Settings;
+package settings;
 
 public enum Attributes {
   ;
