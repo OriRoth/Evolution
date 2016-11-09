@@ -1,8 +1,8 @@
-package plant;
+package bacterium;
 
 import system.Application;
 
-public class PlantApplication extends Application {
+public class BacteriumApplication extends Application {
 
   @Override
   public void go(String[] args) {

@@ -1,4 +1,4 @@
-package plant.settings;
+package bacterium.settings;
 
 public enum Names {
   ;

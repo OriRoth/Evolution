@@ -1,9 +1,9 @@
 package gui;
 
-import plant.PlantApplication;
+import bacterium.BacteriumApplication;
 
 public class Main {
   public static void main(String[] args) {
-    new PlantApplication().go(args);
+    new BacteriumApplication().go(args);
   }
 }
