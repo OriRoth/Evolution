@@ -2,11 +2,11 @@ package gui;
 
 import java.util.List;
 
-import grid.Bounds;
-import grid.Grid;
-import grid.Tile;
+import system.Bounds;
+import system.Grid;
+import system.Tile;
 
-public class CMDGrid implements Grid {
+public abstract class CMDGrid implements Grid {
 
   @Override
   public Bounds getBounds() {

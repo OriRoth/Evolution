@@ -1,4 +1,4 @@
-package settings;
+package plant.settings;
 
 public enum Attributes {
   ;

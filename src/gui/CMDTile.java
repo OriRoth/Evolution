@@ -1,10 +1,10 @@
 package gui;
 
-import grid.Content;
-import grid.Point;
-import grid.Tile;
+import system.Content;
+import system.Point;
+import system.Tile;
 
-public class CMDTile implements Tile {
+public abstract class CMDTile implements Tile {
 
   @Override
   public Content getContent() {

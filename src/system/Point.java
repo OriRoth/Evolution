@@ -1,4 +1,4 @@
-package grid;
+package system;
 
 public class Point {
   int x, y;

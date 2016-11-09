@@ -1,4 +1,4 @@
-package grid;
+package system;
 
 public interface Tile {
   Content getContent();
