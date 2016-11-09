@@ -15,6 +15,12 @@ public class CMDGrid implements Grid {
   }
 
   @Override
+  public List<Tile> getTiles() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
   public Tile getTile(int x, int y) {
     // TODO Auto-generated method stub
     return null;
@@ -37,5 +43,4 @@ public class CMDGrid implements Grid {
     // TODO Auto-generated method stub
     
   }
-
 }

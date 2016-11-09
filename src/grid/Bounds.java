@@ -1,22 +1,22 @@
 package grid;
 
 public class Bounds {
-  protected int x, y;
+  protected int w, h;
 
-  protected Bounds(int x, int y) {
-    this.x = x;
-    this.y = y;
+  protected Bounds(int w, int h) {
+    this.w = w;
+    this.h = h;
   }
 
-  public static Bounds measures(int x, int y) {
-    return new Bounds(x, y);
+  public static Bounds measures(int w, int h) {
+    return new Bounds(w, h);
   }
 
-  public int getX() {
-    return x;
+  public int getW() {
+    return w;
   }
 
-  public int getY() {
-    return y;
+  public int getH() {
+    return h;
   }
 }

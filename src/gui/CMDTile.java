@@ -1,6 +1,7 @@
 package gui;
 
 import grid.Content;
+import grid.Point;
 import grid.Tile;
 
 public class CMDTile implements Tile {
@@ -18,9 +19,20 @@ public class CMDTile implements Tile {
   }
 
   @Override
-  public void draw() {
+  public Point getPosition() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public void setPosition(Point p) {
     // TODO Auto-generated method stub
     
   }
 
+  @Override
+  public void draw() {
+    // TODO Auto-generated method stub
+    
+  }
 }
