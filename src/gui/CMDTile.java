@@ -13,7 +13,7 @@ public abstract class CMDTile implements Tile {
   }
 
   @Override
-  public void setContent(Content c) {
+  public void setContent(Content __) {
     // TODO Auto-generated method stub
     
   }
@@ -25,7 +25,7 @@ public abstract class CMDTile implements Tile {
   }
 
   @Override
-  public void setPosition(Point p) {
+  public void setPosition(Point __) {
     // TODO Auto-generated method stub
     
   }
