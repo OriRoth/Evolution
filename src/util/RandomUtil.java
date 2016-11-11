@@ -1,6 +1,8 @@
 package util;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -14,5 +16,11 @@ public class RandomUtil {
   @SafeVarargs
   public static <T> T choose(T... ¢) {
     return choose(Arrays.asList(¢));
+  }
+  
+  public static <T> T choose(Collection<T> ¢) {
+    List<T> l = new LinkedList<>();
+    l.addAll(¢);
+    return choose(l);
   }
 }

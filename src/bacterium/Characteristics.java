@@ -35,25 +35,47 @@ public class Characteristics {
   private Characteristics() {
     inner = new HashMap<>();
   }
+  
+  public Characteristics copy() {
+    Characteristics $ = new Characteristics();
+    $.inner.putAll(inner);
+    return $;
+  }
 
   public static Characteristics random() {
     Characteristics $ = empty();
     for (int ¢ = 0; ¢ < Attributes.points; ++¢)
-      increase($);
+      $.increase();
     return $;
   }
 
-  private static void increase(Characteristics $) {
-    alter($, c -> c.canIncrease(), c -> c.increase());
+  public static Characteristics spawn(Characteristics ¢) {
+    return RandomUtil.random.nextInt(100) >= Attributes.mutation_rate ? clone(¢) : mutate(¢);
   }
-  
-  private static void decrease(Characteristics $) {
-    alter($, c -> c.canDecrease(), c -> c.decrease());
+
+  public static Characteristics clone(Characteristics ¢) {
+    return ¢;
   }
-  
-  private static void alter(Characteristics $, Function<Characteristic<?>, Boolean> canAlter, Consumer<Characteristic<?>> alter) {
+
+  public static Characteristics mutate(Characteristics ¢) {
+    Characteristics $ = ¢.copy();
+    $.decrease();
+    $.increase();
+    return null;
+  }
+
+  private void increase() {
+    alter(c -> c.canIncrease(), c -> c.increase());
+  }
+
+  private void decrease() {
+    alter(c -> c.canDecrease(), c -> c.decrease());
+  }
+
+  private void alter(Function<Characteristic<?>, Boolean> canAlter,
+      Consumer<Characteristic<?>> alter) {
     List<Characteristic<?>> cs = new LinkedList<>();
-    for (Characteristic<?> ¢ : $.inner.values())
+    for (Characteristic<?> ¢ : inner.values())
       if (canAlter.apply(¢).booleanValue())
         cs.add(¢);
     alter.accept(RandomUtil.choose(cs));

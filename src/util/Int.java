@@ -7,7 +7,7 @@ public class Int {
     inner = i;
   }
 
-  public static Int valueOf(int i) {
-    return new Int(i);
+  public static Int valueOf(int ¢) {
+    return new Int(¢);
   }
 }
