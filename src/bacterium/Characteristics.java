@@ -71,16 +71,16 @@ public class Characteristics {
     return $;
   }
 
-  public static Characteristics spawn(Characteristics ¢) {
-    return RandomUtil.random.nextInt(100) >= Attributes.mutation_rate ? clone(¢) : mutate(¢);
+  public Characteristics spawn() {
+    return RandomUtil.random.nextInt(100) >= Attributes.mutation_rate ? clone() : mutate();
   }
 
-  public static Characteristics clone(Characteristics ¢) {
-    return ¢;
+  public Characteristics clone() {
+    return this;
   }
 
-  public static Characteristics mutate(Characteristics ¢) {
-    Characteristics $ = ¢.copy();
+  public Characteristics mutate() {
+    Characteristics $ = copy();
     $.decrease();
     $.increase();
     return null;
