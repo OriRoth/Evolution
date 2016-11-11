@@ -9,6 +9,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 import bacterium.settings.Attributes;
+import bacterium.strategies.Strategy;
 import util.RandomUtil;
 
 public class Characteristics {
@@ -18,7 +19,9 @@ public class Characteristics {
 
   public enum Attribute {
     spawn(() -> Characteristic.positiveInteger()), attack(() -> Characteristic.positiveInteger()), speed(
-        () -> Characteristic.positiveInteger()), strieDirections(() -> Characteristic.attributes(Direction.values()));
+        () -> Characteristic.positiveInteger()), strieDirections(
+            () -> Characteristic.attributes(Direction.values())), strategy(
+                () -> Characteristic.choice(Strategy.basic(), Strategy.all()));
     private Supplier<Characteristic<?>> characteristicSupplier;
 
     Attribute(Supplier<Characteristic<?>> characteristicSupplier) {
@@ -40,7 +43,7 @@ public class Characteristics {
   public <T> T get(String s, Class<T> x) {
     return (T) inner.get(s).get();
   }
-  
+
   public int getInt(String ¢) {
     return ((Integer) inner.get(¢).get()).intValue();
   }
