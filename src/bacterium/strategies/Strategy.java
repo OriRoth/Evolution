@@ -5,11 +5,10 @@ import java.util.List;
 
 import bacterium.BacteriaTile;
 import bacterium.BacteriumTile;
-import bacterium.Characteristics.Direction;
 import util.Cyclic2DArrayList;
 
 public interface Strategy {
-  Direction decide(Cyclic2DArrayList<BacteriumTile> env, BacteriaTile t);
+  BacteriumTile decide(Cyclic2DArrayList<BacteriumTile> env, BacteriaTile t);
   
   static Strategy basic() {
     return EagerBlind.self();

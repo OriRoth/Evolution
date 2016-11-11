@@ -14,12 +14,18 @@ import util.RandomUtil;
 
 public class Characteristics {
   public enum Direction {
-    UP, DOWN, LEFT, Right
+    UP(-1, 0), Right(0, 1), DOWN(1, 0), LEFT(0, -1);
+    public final int xd, yd;
+
+    Direction(int xd, int yd) {
+      this.xd = xd;
+      this.yd = yd;
+    }
   }
 
   public enum Attribute {
     spawn(() -> Characteristic.positiveInteger()), attack(() -> Characteristic.positiveInteger()), speed(
-        () -> Characteristic.positiveInteger()), strieDirections(
+        () -> Characteristic.positiveInteger()), strideDirections(
             () -> Characteristic.attributes(Direction.values())), strategy(
                 () -> Characteristic.choice(Strategy.basic(), Strategy.all()));
     private Supplier<Characteristic<?>> characteristicSupplier;
@@ -33,18 +39,22 @@ public class Characteristics {
     }
   }
 
-  Map<String, Characteristic<?>> inner;
+  Map<Attribute, Characteristic<?>> inner;
 
   private Characteristics() {
     inner = new HashMap<>();
   }
 
   @SuppressWarnings("unchecked")
-  public <T> T get(String s, Class<T> x) {
-    return (T) inner.get(s).get();
+  public <T> T get(Attribute a, Class<T> x) {
+    return (T) inner.get(a).get();
   }
 
-  public int getInt(String ¢) {
+  public Object get(Attribute ¢) {
+    return inner.get(¢).get();
+  }
+
+  public int getInt(Attribute ¢) {
     return ((Integer) inner.get(¢).get()).intValue();
   }
 
@@ -95,7 +105,7 @@ public class Characteristics {
   private static Characteristics empty() {
     Characteristics $ = new Characteristics();
     for (Attribute ¢ : Attribute.values())
-      $.inner.put(¢.name(), ¢.characteristic());
+      $.inner.put(¢, ¢.characteristic());
     for (Characteristic<?> ¢ : $.inner.values())
       ¢.initialize();
     return $;

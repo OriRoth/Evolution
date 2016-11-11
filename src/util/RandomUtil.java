@@ -10,14 +10,14 @@ public class RandomUtil {
   public static Random random = new Random();
 
   public static <T> T choose(List<T> ¢) {
-    return ¢ == null || ¢.isEmpty() ? null : ¢.get(random.nextInt(¢.size()));
+    return ¢ == null || ¢.isEmpty() ? null : ¢.get(¢.size() == 1 ? 0 : random.nextInt(¢.size()));
   }
 
   @SafeVarargs
   public static <T> T choose(T... ¢) {
     return choose(Arrays.asList(¢));
   }
-  
+
   public static <T> T choose(Collection<T> ¢) {
     List<T> l = new LinkedList<>();
     l.addAll(¢);
