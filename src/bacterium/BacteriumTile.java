@@ -9,5 +9,10 @@ public abstract class BacteriumTile extends CMDTile {
   public BacteriumTile(Point pos) {
     this.pos = pos;
   }
-  public abstract void act(Cyclic2DArrayList<BacteriumTile> env);
+  public void act(Cyclic2DArrayList<BacteriumTile> env) {
+    
+  }
+  public void refresh() {
+    
+  }
 }

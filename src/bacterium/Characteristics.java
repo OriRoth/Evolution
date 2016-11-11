@@ -35,7 +35,16 @@ public class Characteristics {
   private Characteristics() {
     inner = new HashMap<>();
   }
+
+  @SuppressWarnings("unchecked")
+  public <T> T get(String s, Class<T> x) {
+    return (T) inner.get(s).get();
+  }
   
+  public int getInt(String ¢) {
+    return ((Integer) inner.get(¢).get()).intValue();
+  }
+
   public Characteristics copy() {
     Characteristics $ = new Characteristics();
     $.inner.putAll(inner);
@@ -72,8 +81,7 @@ public class Characteristics {
     alter(c -> c.canDecrease(), c -> c.decrease());
   }
 
-  private void alter(Function<Characteristic<?>, Boolean> canAlter,
-      Consumer<Characteristic<?>> alter) {
+  private void alter(Function<Characteristic<?>, Boolean> canAlter, Consumer<Characteristic<?>> alter) {
     List<Characteristic<?>> cs = new LinkedList<>();
     for (Characteristic<?> ¢ : inner.values())
       if (canAlter.apply(¢).booleanValue())
