@@ -35,5 +35,4 @@ public class BacteriaTile extends BacteriumTile {
   public Characteristics characteristics() {
     return characteristics;
   }
-
 }

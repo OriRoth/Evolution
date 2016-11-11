@@ -8,5 +8,4 @@ public class BacteriumApplication extends Application {
   public void go(String[] args) {
     System.out.println("hello plant");
   }
-
 }

@@ -39,7 +39,7 @@ public class Characteristics {
     }
   }
 
-  Map<Attribute, Characteristic<?>> inner;
+  private Map<Attribute, Characteristic<?>> inner;
 
   private Characteristics() {
     inner = new HashMap<>();
@@ -109,5 +109,15 @@ public class Characteristics {
     for (Characteristic<?> ¢ : $.inner.values())
       ¢.initialize();
     return $;
+  }
+  
+  @Override
+  public boolean equals(Object ¢) {
+    if (!(¢ instanceof Characteristics))
+      return false;
+    for (Attribute a : inner.keySet())
+      if (!inner.get(a).get().equals(((Characteristics) ¢).inner.get(a)))
+        return false;
+    return true;
   }
 }
